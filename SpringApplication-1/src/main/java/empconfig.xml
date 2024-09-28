@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+<bean  class="com.company.Employeebean" id="id1"> 
+
+<property name="empid" value="1001"></property>
+ 
+<property name="empprojects" >
+<list>
+
+<value>20</value>
+<value>40</value>
+<value>10</value>
+<value>60</value>
+<value>100</value>
+
+
+</list>
+</property>
+<property name="empmap">
+<map>
+ <entry key="tcs" value="20"/>
+  <entry key="wipro" value="10"/>
+  <entry key="sathyatech" value="3"/>
+ 
+ </map>
+</property>
+
+</bean>
+</beans>
