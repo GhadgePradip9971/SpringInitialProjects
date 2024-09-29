@@ -15,4 +15,10 @@
 <bean id="custDAO" class="com.nt.dao.CustomerDAOimpl">
 <constructor-arg ref="dmds"></constructor-arg>
 </bean>
+
+<!-- service class cfg -->
+<bean id="custService" class="com.nt.service.CustomerMgmtServiceImpl">
+<constructor-arg ref="custDAO"></constructor-arg>
+</bean>
+
 </beans>
