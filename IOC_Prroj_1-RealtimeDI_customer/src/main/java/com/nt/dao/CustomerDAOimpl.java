@@ -32,11 +32,11 @@ public class CustomerDAOimpl implements ICustomerDAO {
 			con=ds.getConnection();
 			//CREATE Prepared statement object having pre-compiled sql query 
 			ps=con.prepareStatement(REALTIMEDI_CUSTOMER_INSERT_QUERY);
-		ps.setString(1, bo.getCustName());	
+		ps.setString(1, bo.getCustName());	s
 		ps.setString(2,bo.getCustAddrs());
 		ps.setFloat(3,bo.getPamt());
-		ps.setFloat(4,bo.getRate());
-		ps.setFloat(5, bo.getTime());
+		ps.setFloat(5,bo.getRate());
+		ps.setFloat(4, bo.getTime());
 		ps.setFloat(6, bo.getIntrestAmount());
 		//execute the querry
 		 count =ps.executeUpdate();
