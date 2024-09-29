@@ -8,14 +8,14 @@ import javax.sql.DataSource;
 
 import com.nt.bo.CustomerBO;
 
-public class CustomerDAOimpl implements ICustomerDAO {
+public final class CustomerOracleDAOimpl implements ICustomerDAO {
 	private static final String REALTIMEDI_CUSTOMER_INSERT_QUERY="INSERT INTO REALTIMEDI_CUSTOMER VALUES (CUSTID_SEQ.NEXTVAL,?,?,?,?,?,?)";
 	private DataSource ds;
 	
 	
 
-	public CustomerDAOimpl(DataSource ds) {
-	System.out.println("CustomerDAOimpl::1-param constructor");
+	public CustomerOracleDAOimpl(DataSource ds) {
+	System.out.println("CustomerOracleDAOimpl::1-param constructor");
 		this.ds = ds;
 	}
 
