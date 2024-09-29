@@ -18,7 +18,11 @@
 
 <!-- service class cfg -->
 <bean id="custService" class="com.nt.service.CustomerMgmtServiceImpl">
-<constructor-arg ref="custDAO"></constructor-arg>
+<constructor-arg name="dao" ref="custDAO"></constructor-arg>
 </bean>
-
+<!--  Controller clas configuration  -->
+<bean id="controller" class="com.nt.controller.MainController">
+<constructor-arg name="service" ref="custService">
+</constructor-arg>
+</bean>
 </beans>
