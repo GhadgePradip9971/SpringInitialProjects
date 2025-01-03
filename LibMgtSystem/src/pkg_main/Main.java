@@ -64,18 +64,30 @@ public class Main {
 							bm.listBooksBySubject(search_subject);
 							break;
 						case 4:
-							System.out.println("Enter the Isbn To Issue a book=");
+							System.out.println("Enter the Isbn To Issue a book =");
 							int issues_isbn = sc.nextInt();
+							// int rollNo1 = sc.nextInt();
 							book = bm.searchBookByIsbn(issues_isbn);
 							try {
-								if (book != null) {
+								if (book.getAvailable_quantity() > 0) {
+									System.out.println("the book is issued by u;");
+								}
+							} catch (NullPointerException nse) {
+								// System.out.println(nse);
+								System.out.println("you not issued the book with given isbn no");
+
+							}
+							// book = bm.searchBookByIsbn(rollNo1);
+
+							try {
+								if (book == null) {
 									throw new BookNotFoundException();
 
 								}
 								if (book.getAvailable_quantity() > 0) {
 									if (btm.issueofBook(rollNo, issues_isbn)) {
 										book.setAvailable_quantity(book.getAvailable_quantity() - 1);
-										System.out.println("Book has been Issued..");
+										System.out.println("the quantity of book is availabale for issued a book!!!1");
 									}
 
 								} else {
@@ -85,6 +97,8 @@ public class Main {
 							} catch (BookNotFoundException bnfe) {
 								System.out.println(bnfe);
 
+							} catch (NullPointerException nse) {
+								System.out.println(nse);
 							}
 							break;
 						case 5:
@@ -295,14 +309,14 @@ public class Main {
 						System.out.println("Subject:");
 						subject = sc.nextLine();
 
-						System.out.println("Available Quantity:");
+						System.out.println("Available Quantity(intiger):");
 						available_quantity = sc.nextInt();
 						sc.nextLine();
 
 						book = new Book(isbn, title, author, publisher, edition, subject, available_quantity);
 						bm.addABook(book);
-						System.out.println("A Book Record Is Added");
-
+						System.out.println("A New Book Added Succesfully!!!!!!!!");
+						break;
 					case 24:// update a record
 						System.out.println("Plese Enter the Isbn");
 						int update_isbn = sc.nextInt();
@@ -334,6 +348,7 @@ public class Main {
 							available_quantity = sc.nextInt();
 
 							bm.updateBook(update_isbn, title, author, publisher, edition, subject, available_quantity);
+							System.out.println("book data updated succesfully");
 
 						} catch (BookNotFoundException bnfe) {
 							System.out.println(bnfe);
@@ -355,8 +370,10 @@ public class Main {
 						break;
 					case 31:// to view All transaction
 						System.out.println("All The Transaction are:");
-						btm.showAll();
 						btm.viewAllBooks();
+
+						// btm.viewAllBooks();
+						break;
 					case 99:
 						System.out.println("thank for visiting library");
 						break;

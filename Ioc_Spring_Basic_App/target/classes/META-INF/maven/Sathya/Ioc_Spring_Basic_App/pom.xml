@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>Sathya</groupId>
-  <artifactId>IOCProjAnnotations_in_spring</artifactId>
+  <artifactId>Ioc_Spring_Basic_App</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>IOCProjAnnotations_in_spring</name>
+  <name>Ioc_Spring_Basic_App</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

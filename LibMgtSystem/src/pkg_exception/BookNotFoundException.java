@@ -7,7 +7,7 @@ public class BookNotFoundException extends Exception {
 
 	@Override
 	public String toString() {
-		return "BookNotFoundExceptionis generated";
+		return "BookNotFoundException is generated";
 	}
 
 }

@@ -2,6 +2,7 @@ package pkg_transaction;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -18,14 +19,14 @@ public class BookTransactionManager {
 
 	// create constructor
 	public BookTransactionManager() {
-		book_transaction_file = new File("book_transaction.dat");
+		book_transaction_file = new File("book_transactions.dat");
 		book_transaction_list = new ArrayList<BookTransaction>();
 
 		if (book_transaction_file.exists()) {
 			try {
 				ois_book_transaction = new ObjectInputStream(new FileInputStream(book_transaction_file));
 				book_transaction_list = (ArrayList<BookTransaction>) ois_book_transaction.readObject();
-				// ois_book_transaction.close();
+				// sois_student.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
@@ -65,19 +66,41 @@ public class BookTransactionManager {
 		return false;
 	}
 
-	public void showAll() {
-		for (BookTransaction book_transaction : book_transaction_list)
-			System.out.println(book_transaction);
-	}
+	/*
+	 * public void showAll() { for (BookTransaction book_transaction :
+	 * book_transaction_list) System.out.println(book_transaction); }
+	 */
 
 	public void viewAllBooks() {
 		for (BookTransaction book_transaction : book_transaction_list)
-			;
+
+			System.out.println(book_transaction);
+
 	}
 
+	/*
+	 * public void writeToFile() { // TODO Auto-generated method stubtry { try {
+	 * oos_book_transaction = new ObjectOutputStream(new
+	 * FileOutputStream(book_transaction_file));
+	 * oos_book_transaction.writeObject(book_transaction_list); } catch (IOException
+	 * ioe) { ioe.printStackTrace(); }
+	 */
 	public void writeToFile() {
-		// TODO Auto-generated method stub
-
+		try {
+			oos_book_transaction = new ObjectOutputStream(new FileOutputStream(book_transaction_file));
+			oos_book_transaction.writeObject(book_transaction_list);
+			System.out.println("File written successfully.");
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			if (oos_book_transaction != null) {
+				try {
+					oos_book_transaction.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }
