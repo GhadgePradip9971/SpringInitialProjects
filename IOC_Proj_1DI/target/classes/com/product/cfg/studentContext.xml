@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id="stu1" class="com.student.Student">
+<property name="name" value="Pradip"></property>
+<property name="city" value="Dharashiv"></property>
+<property name="schoolName" value="Tuljai vidyalaya"></property>
+<property name="id" value="26"></property>
+<property name="studentdata">
+<set>
+<value>Pradip</value>
+<value>Pradip</value><!-- set doesent alloow duplicate-->
+<value>pune</value>
+<value>coep</value>
+<value>34</value>
+</set></property>
+</bean>
+
+
+</beans>

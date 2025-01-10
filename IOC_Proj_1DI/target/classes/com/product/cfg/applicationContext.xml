@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- Using setter injection (property tag)-->
+    <bean class="com.product.ProductDetails" id="prod1">
+    <property name="productName" value="Iphone"></property>
+    <property name="price" value="160000"></property>
+    <property name="productId" value="1"></property>
+    
+    </bean>
+    
+    <bean id="prod2" class="com.product.ProductDetails">
+    <property name="productName" value="Nokia"></property>
+    <property name="price" value="12000"></property>
+    <property name="productId" value="1"></property>
+ </bean>
+    
+    <!-- bean configuration with  OrderDetails classs-->
+    <bean id="order1" class="com.product.OrderDetails">
+    <property name="orderId" value="88889989898"></property>
+    <property name="orderPrice" value="100.900"></property>
+<!--<property name="getOrderDelivered" value="true"></property>
+-->      <property name="items" >
+<!--        list of items-->    <list>
+
+<value>Coke</value>
+<value>coke</value>
+<value>Chocolate</value>
+<value>Water bottle</value>
+
+</list>
+    </property>
+    </bean>
+ 
+
+    
+    
+    
+    </beans>
