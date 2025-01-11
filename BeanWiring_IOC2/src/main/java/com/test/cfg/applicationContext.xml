@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="areaDetails" class="com.test.bean.AreaDetails">
+<property name="street" value="Naresh It road"></property>
+<property name="pincode" value="323232"></property>
+</bean>
+<bean id="addr" class="com.test.bean.Address">
+<property name="flatNo" value="333"></property>
+<property name="houseName" value="Lotus Homes"></property>
+<property name="mobile" value="91822222"></property>
+<property name="area" ref="areaDetails"></property>
+</bean>
+<bean id="accountDetails" class="com.test.bean.AccountDetails">
+<constructor-arg name="name" value="Dilip" />
+<constructor-arg name="balance" value="500.00" />
+<constructor-arg name="customerAddress" ref="addr" />
+<constructor-arg name="mobiles">
+<set>
+<value>8826111377</value>
+<value>8826111377</value>
+<value>+91-88888888</value>
+<value>+232388888888</value>
+</set>
+</constructor-arg>
+</bean>
+</beans>
