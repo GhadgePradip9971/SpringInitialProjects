@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id="product" class="com.flipcart.product.Product">
+<constructor-arg name="productId" value="1"></constructor-arg>
+<constructor-arg name="productName" value="Laptop"></constructor-arg>
+
+</bean>
+<bean id="order" class="com.flipcart.order.Order">
+<constructor-arg name="orderId" value="2"></constructor-arg>
+<constructor-arg name="orderValue" value="40000.90"></constructor-arg>
+<constructor-arg name="product" ref="product"></constructor-arg></bean>
+
+<bean id="om" class="com.flipcart.order.OrderManagement">
+<constructor-arg name="noOfOrder" value="100"></constructor-arg>
+<constructor-arg name="totalAmount" value="120000.90"></constructor-arg>
+<constructor-arg name="order" ref="order"></constructor-arg>
+</bean>
+
+</beans>
