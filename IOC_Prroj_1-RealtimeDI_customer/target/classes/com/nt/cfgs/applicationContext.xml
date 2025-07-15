@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+<!--  Data Source Configuration -->
+<bean id="oraDmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+<property name="username" value="pradip"></property>
+<property name="password" value="ghadge"></property>
+</bean>
+
+<bean id="mysqlDmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3305/sathya"/> <!-- Update to your actual host and port -->
+    <property name="username" value="root"/>
+    <property name="password" value="Pradip@2001"/>
+</bean>
+
+
+<!--  DAO Configuration file -->
+<bean id="oracustDAO" class="com.nt.dao.CustomerOracleDAOimpl">
+<constructor-arg name="ds" ref="oraDmds"></constructor-arg>
+</bean>
+
+<bean id="mysqlcustDAO" class="com.nt.dao.CustomerMysqlDAOimpl">
+<constructor-arg name="ds" ref="mysqlDmds"></constructor-arg>
+</bean>
+
+<!-- service class cfg -->
+<bean id="custService" class="com.nt.service.CustomerMgmtServiceImpl">
+<!--<constructor-arg name="dao" ref="oracustDAO"></constructor-arg>-->
+<constructor-arg name="dao" ref="mysqlcustDAO"></constructor-arg>
+</bean>
+
+
+<!--  Controller clas configuration  -->
+<bean id="controller" class="com.nt.controller.MainController">
+<constructor-arg name="service" ref="custService">
+</constructor-arg>
+</bean>
+</beans>
