@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <context:annotation-config/>
+
+   <bean id = "permanantaddress" class = "com.sathya.Addressbean">
+   
+   <property name="hno" value="120"/>
+   <property name="city" value="hyd"/>
+   <property name="state" value="maha"/>
+   </bean>
+
+   <bean id = "temperoryaddress" class = "com.sathya.Addressbean">
+    <property name="hno" value="190"/>
+   <property name="city" value="mumbai"/>
+   <property name="state" value="raj"/>
+   </bean>
+   
+   <bean id = "id2" class = "com.sathya.Employeebean">
+    <property name="empid" value="199"/>
+   <property name="empname" value="mumbainagri"/>
+   </bean>
+   
+   
+
+</beans>
